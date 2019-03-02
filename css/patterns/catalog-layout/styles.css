@@ -1,0 +1,91 @@
+/* Grid
+-------------------------------------- */
+/* No grid by default, so provide vertical separation between items stacked vertically */
+@media (max-width: 47.9375rem) {
+  .item {
+    margin-bottom: 70px;
+  }
+}
+
+/* Define the grid */
+@media (min-width: 48rem) {
+  .products {
+    display: grid;
+    grid-template-columns: minmax(275px, 400px) 65px minmax(225px, 335px) minmax(200px, 300px);
+    grid-template-areas: 
+      "radio  radio   .      camera"
+      ".      light   light  camera"
+      "pong   light   light  record"
+      ".      light   light  record";
+    margin-left: -5vw;
+  }
+  /* Place and align items on the grid */
+  .radio {
+    grid-area: radio;
+    justify-self: end;
+    z-index: 1;
+  }
+  .camera {
+    -ms-flex-item-align: center;
+        align-self: center;
+    grid-area: camera;
+  }
+  .ping-pong {
+    -ms-flex-item-align: start;
+        align-self: start;
+    grid-area: pong;
+    -webkit-transform: rotate(-15deg) translate(110px, 60px);
+            transform: rotate(-15deg) translate(110px, 60px);
+    z-index: 1;
+  }
+  .light {
+    grid-area: light;
+    margin-top: -100px;
+  }
+  .record-player {
+    -ms-flex-item-align: center;
+        align-self: center;
+    grid-area: record;
+    justify-self: center;
+  }
+}
+
+/* Generic styles for demo purposes
+-------------------------------------- */
+.item,
+.item img,
+.price {
+  display: block;
+}
+
+.item {
+  color: #222;
+  font-size: 1.125rem;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (min-width: 48rem) {
+  .item {
+    font-size: 0.9375rem;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  .item:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
+
+.item img {
+  margin: 0 auto 5px;
+  max-width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .products {
+    margin-bottom: 30px;
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,94 @@
+/* Sections of Layout
+-------------------------------------- */
+/* Layout is stacked vertically by default (for narrower viewports), so give some breathing room between the sections. */
+.container > * {
+  margin-bottom: 10px;
+}
+
+/* Now let's apply grid for wider viewports. */
+@media screen and (min-width: 40em) {
+  .container > * {
+    margin-bottom: 0;
+  }
+  /* Define the grid */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 10px 20px;
+  }
+  /* Place items on the grid */
+  .header {
+    grid-column: 1 / -1;
+  }
+  .sidebar {
+    grid-row-end: span 2;
+  }
+  .content {
+    grid-column: 2;
+  }
+}
+
+/* Alternative Approach
+-------------------------------------- */
+/* There is more than one way to achieve the same result with Grid. The commented-out code below, which would replace all of the code above, shows how to use Grid's template areas feature. It's pretty ingenious: in the grid-template-areas property, you show where the various grid areas should appear on the grid.
+
+For example, I've said below that:
+  * the head grid-area should span all three columns of row one;
+  * the side1 grid-area should occupy column one of row two;
+  * the main grid-area should occupy column two of row two;
+  * the side2 grid-area should occupy column three of row two;
+  * and the foot grid-area should span all three columns of row three.
+
+Below that part I've assigned a grid-area to the classes used on the layout's sections. The grid-areas assigned here are the ones used in grid-template-areas. For example, I set .header { grid-area: head; }. If I did .header { grid-area: page-header; } instead, I would need to change "head head head" in grid-template-areas to "page-header page-header page-header". (Please note that only one space between grid areas is required to indicate columns. You do not have to line up the columns in grid-template-areas as I have below.)
+
+All told, when combining grid-template-areas with matching grid-area assignments, you can see what the layout will be just by glancing at the grid-template-areas value!
+*/
+/*
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-gap: 10px 20px;
+  grid-template-areas:
+    "head  head head"
+    "side1 main side2"
+    "foot  foot foot";
+}
+
+.header {
+  grid-area: head;
+}
+
+.sidebar-1 {
+  grid-area: side1;
+}
+
+.content {
+  grid-area: main;
+}
+
+.sidebar-2 {
+  grid-area: side2;
+}
+
+.footer {
+  grid-area: foot;
+}
+*/
+/* Generic styles for demo purposes
+-------------------------------------- */
+.container {
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75rem;
+}
+
+.container > * {
+  background-color: #ccc;
+  padding: 1em;
+}
+
+/* Typically, you wouldn't specify a height or min-height on this, instead allowing your actual content (i.e., text, images, etc.) to dictate the height of your content area. But since this example has very minimal content, I've set a min-height to mimic a taller content area. */
+.content {
+  min-height: 350px;
+}

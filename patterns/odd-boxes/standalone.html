@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odd Boxes - CSS Makeovers</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.cssmakeovers.com/patterns/odd-boxes/">
+  <link rel="stylesheet" href="../../css/patterns/odd-boxes/styles.css"> 
+</head>
+<body>
+<div class="container">
+  <div class="item-1">
+    <p>1</p>
+    <p>Items 1 and 2 are in the same row. Items 1, 6, and half of 4 are in the same column.</p>
+    <p>Item 1 appears behind 3 because of the <code>translateX(-90px)</code> set on it.</p>
+  </div>
+  
+  <div class="item-2">
+    <p>2</p>
+  </div>
+  
+  <div class="item-3">
+    <p>3</p>
+    <p>Items 3–5 are in the same row and each spans two columns.</p>
+    <p><small>(Note: I didn’t focus on making this layout fully responsive, so it fails in narrow viewports. You could stack the boxes by default, and then apply the Grid layout at a breakpoint that’s wide enough to accommodate it.)</small></p>
+  </div>
+  
+  <div class="item-4">
+    <p>4</p>
+    <p>As is typical with Grid, the row below will push down or move up in accordance with the length of content in <em>this</em> row. So if I were to add more content to items 3, 4, or 5, the layout wouldn't break. This is one key difference between doing a layout like this with Grid and positioning the items absolutely.</p>
+  </div>
+  
+  <div class="item-5">
+    <p>5</p>
+  </div>
+  
+  <div class="item-6">
+    <p>6</p>
+  </div>
+  
+  <div class="item-7">
+    <p>7</p>
+    <p>Items 6 and 7 are in the same row. Item 7 is in the same column as 2 and half of 4.</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* Define the grid */
+.container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+/* Place item on the grid */
+.feature {
+  grid-row: 1 / -1;
+}
+
+/* Generic styles for demo purposes */
+.container {
+  font-family: Helvetica, Arial, sans-serif;
+  max-width: 800px;
+}
+
+.container > * {
+  background-color: #ccc;
+  padding: 1em;
+}
+
+/* Typically, you wouldn't specify a height or min-height on this, instead allowing your actual content (i.e., text, images, etc.) to dictate the height of your content area. But since this example has very minimal content, I've set a min-height to mimic a taller content area. */
+.container {
+  min-height: 400px;
+}

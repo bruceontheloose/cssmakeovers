@@ -1,0 +1,39 @@
+/* Grid
+-------------------------------------- */
+/* Define the grid */
+.OinO {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Place item on the grid */
+.OinO__feature {
+  grid-column: 2 / span 3;
+  grid-row: 2 / span 3;
+}
+
+/* Generic styles for demo purposes
+-------------------------------------- */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.OinO {
+  font-family: Helvetica, Arial, sans-serif;
+  max-width: 75rem;
+}
+
+.OinO > * {
+  background-color: #ccc;
+  padding: 1em;
+  min-height: 109px;
+}

@@ -1,0 +1,46 @@
+/* Sections of Layout
+-------------------------------------- */
+/* Layout is stacked vertically by default (for narrower viewports), so give some breathing room between the sections. */
+.container > * {
+  margin-bottom: 10px;
+}
+
+/* Now let's apply grid for wider viewports. */
+@media screen and (min-width: 40em) {
+  .container > * {
+    margin-bottom: 0;
+  }
+  /* Define the grid */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 10px 20px;
+  }
+  /* Place items on the grid */
+  .header,
+  .footer {
+    grid-column: 1 / -1;
+  }
+  .content {
+    grid-column: 2 / 3;
+  }
+}
+
+/* Generic styles for demo purposes
+-------------------------------------- */
+.container {
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75rem;
+}
+
+.container > * {
+  background-color: #ccc;
+  padding: 1em;
+}
+
+/* Typically, you wouldn't specify a height or min-height on this, instead allowing your actual content (i.e., text, images, etc.) to dictate the height of your content area. But since this example has very minimal content, I've set a min-height to mimic a taller content area. */
+.content {
+  min-height: 350px;
+}

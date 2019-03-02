@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Object - CSS Makeovers</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.cssmakeovers.com/patterns/media-object/">
+  <link rel="stylesheet" href="../../css/patterns/media-object/styles.css"> 
+</head>
+<body>
+<!-- ======================== -->
+<!-- ==== Media Object 1 ==== -->
+<!-- ======================== -->
+<div class="media">
+  <h2 class="media__heading">Media Object 1</h2>
+  <img src="img/building.jpg" alt="Low-angle shot of a tall white building pointing to a blue sky" class="media__asset">
+  <p>Notice that the content in this column doesn’t wrap underneath the photo. This is the secret:</p>
+
+<pre><code>  grid-row: 1 / span 20;</code></pre>
+
+  <p>It’s applied to the <code>img</code>, telling it to occupy rows 1 through the <code>span</code> value. I chose “20” as an artificially high number; you could modify it to suit your needs. As long as it’s at least as high as the number of grid items other than the image, it’ll work. This example has 5 grid items other than the image: the heading, a paragraph, a <code>pre</code> element, and two more paragraphs. Grid doesn’t render the remaining 15 rows (that is, the 20 minus the 5) because they’re empty and we didn’t give them an explicit height. So by using a high <code>span</code> value, the same CSS can be used for media objects with varying amounts of grid items.</p>
+  <p>By comparison, creating this in Flexbox requires wrapping this column’s content in a <code>div</code> or similar container.</p>
+</div>
+
+<!-- ================================= -->
+<!-- ==== Media Object 2: Flipped ==== -->
+<!-- ================================= -->
+<div class="media media--flipped">
+  <h2 class="media__heading">Media Object 2: Flipped</h2>
+  <p>In this case, the <code>img</code> comes after the other content in the HTML (although it doesn’t have to). The CSS is the same except for this addition:</p>
+
+<pre><code>  .media--flipped {
+    grid-template-columns: 1fr auto;
+    grid-auto-flow: column;
+  }</code></pre>
+
+  <p>That class goes on the element that wraps the entire media object. So, whereas Example 1 uses <code>&lt;div class="media"&gt;</code>, this one uses <code>&lt;div class="media media--flipped"&gt;</code>.</p>
+  <img src="img/building.jpg" alt="Low-angle shot of a tall white building pointing to a blue sky" class="media__asset">
+</div>
+
+<!-- ====================================== -->
+<!-- ==== Media Object 3: Kitchen Sink ==== -->
+<!-- ====================================== -->
+<div class="media">
+  <h2 class="media__heading">Media Object 3: Kitchen Sink</h2>
+  <img src="img/woman.jpg" alt="A woman smiling and laughing" class="media__asset">
+  <p>This one includes a little bit of everything, including nested media objects. It could include another image, an image in a figure, a table, a form, buttons—whatever you’d like. The CSS is the same.</p>
+
+  <!-- :::: Start nested media object 1 :::: -->
+  <div class="media">
+    <img src="img/woman.jpg" alt="A woman smiling and laughing" class="media__asset">
+    <h3 class="media__heading">Nested Media Object</h3>
+    <p>Recusandae voluptatum obcaecati quam qui maxime minima reprehenderit dolore enim consequatur, culpa odit hic?</p>
+    <p>Provident reiciendis, illo distinctio repellendus dolores impedit, debitis!</p>
+  </div>
+  <!-- end nested media object 1 -->
+
+  <p>An unordered list:</p>
+  <ul>
+    <li>list item one</li>
+    <li>list item two</li>
+    <li>list item three</li>
+  </ul>
+
+  <!-- :::: Start nested media object 2 :::: -->
+  <div class="media media--flipped">
+    <img src="img/woman.jpg" alt="A woman smiling and laughing" class="media__asset">
+    <h3 class="media__heading">Nested Media Object: Flipped</h3>
+    <p>This uses the same <code>.media--flipped</code> class as the first flipped example.</p>
+  </div>
+  <!-- end nested media object 2 -->
+
+  <figure>
+    <img src="img/trees.jpg" alt="Aerial view of winding path through colorful forest">
+    <figcaption>An image in a <code>figure</code> element.</figcaption>
+  </figure>
+
+  <p>Esse animi distinctio ea, ipsum error atque, dolore, quod similique, assumenda molestiae porro. Laboriosam vero commodi. Aspernatur sint quasi harum repellat debitis, perferendis error ab deserunt facilis assumenda excepturi libero, expedita doloribus reiciendis, quae necessitatibus ut ipsa eaque.</p>
+</div>
+
+<p class="Credit">Photos courtesy of <a href="https://unsplash.com/">Unsplash</a></p>
+
+</body>
+</html>

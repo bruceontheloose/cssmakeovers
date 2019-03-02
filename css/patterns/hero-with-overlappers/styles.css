@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+}
+
+/* Layout
+-------------------------------------- */
+/* No grid by default, so provide some vertical separation between items when stacked vertically and limit their widths */
+@media (max-width: 37.4375rem) {
+  .box {
+    margin-top: 20px;
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Define the grid in wider viewports */
+@media (min-width: 37.5rem) {
+  .grid {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr repeat(3, minmax(auto, 290px)) 1fr;
+  }
+}
+
+@media (min-width: 37.5rem) {
+  .wrapper-hero {
+    /* span the entire first row (5 columns) */
+    grid-column: span 5;
+  }
+  .box-a {
+    /* only need to place one of the small boxes on the grid -- the rest fall into place due to Grid's auto-placement algorithm */
+    grid-column: 2;
+  }
+  .box {
+    /* overlap grid item on top of hero */
+    margin-top: -2.5rem;
+  }
+}
+
+/* Generic styles for demo purposes
+-------------------------------------- */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.grid,
+.hero {
+  font-family: Tahoma, sans-serif;
+  text-align: center;
+}
+
+/* Hero */
+.wrapper-hero {
+  background-color: #e4a232;
+}
+
+.hero {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+  padding: 2.25rem 2rem;
+}
+
+@media (min-width: 37.5rem) {
+  .hero {
+    padding-bottom: 5.175rem;
+    padding-top: 3rem;
+  }
+}
+
+.heading {
+  font-size: 2.75rem;
+  margin: .5rem 0 0;
+}
+
+.blurb {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* Small boxes */
+.box {
+  background-color: #fabe58;
+  font-size: 1.75rem;
+  padding: 2em;
+}

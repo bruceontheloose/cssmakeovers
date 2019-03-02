@@ -1,0 +1,152 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+/* Container of whole unit
+----------------------------- */
+.Categories {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1600px;
+  padding-left: 0;
+  width: 100%;
+}
+
+/* Apply Grid only when viewport at least this wide */
+@media only screen and (min-width: 40em) {
+  .Categories {
+    height: calc(100vh - 80px);
+    max-height: 800px;
+    min-height: 400px;
+    /* Define the grid */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-auto-flow: column;
+  }
+}
+
+/* Category (Grid items)
+----------------------------- */
+.Cat {
+  background-color: #222;
+  background-position: center center;
+  background-size: cover;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* :::: Item size types (by height) :::: */
+/* Stacked vertically by default */
+.Cat--100 {
+  min-height: 55vh;
+}
+
+.Cat--50 {
+  min-height: 30vh;
+}
+
+.Cat--33 {
+  min-height: 20vh;
+}
+
+/* Three columns in these wider viewports */
+@media only screen and (min-width: 40em) {
+  /* Place items on the grid */
+  .Cat--100 {
+    /* 6 of the 6 rows = 100% of the grid's height  */
+    grid-row: span 6;
+  }
+  .Cat--50 {
+    /* 3 of the 6 rows = 50% of the grid's height  */
+    grid-row-end: span 3;
+  }
+  .Cat--33 {
+    /* 2 of the 6 rows = 33.33% of the grid's height  */
+    grid-row-end: span 2;
+  }
+}
+
+/* :::: Items content :::: */
+/* Most of what follows is just about making them look nice. */
+.Cat__link {
+  color: #fff;
+  display: block;
+  padding: 12px 13px;
+  position: relative;
+  height: 100%;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 40em) {
+  .Cat__link {
+    padding: 24px 26px;
+  }
+}
+
+.Cat__type {
+  font-size: .75em;
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.Cat__title {
+  font-size: 1.6em;
+  margin-top: 0;
+}
+
+.Cat__show, .Cat__logo {
+  position: absolute;
+}
+
+.Cat__show {
+  bottom: 14px;
+  font-size: .75em;
+}
+
+.Cat__logo {
+  bottom: 4px;
+  font-family: impact;
+  font-size: 1.125em;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  right: 26px;
+}
+
+/* Background imgs. In practice, replace nth-child selectors with classes per your preference. */
+.Cat:nth-child(1) {
+  background-image: url(../../../sites/hulu-grid/img/sky.jpg);
+}
+
+.Cat:nth-child(2) {
+  background-image: url(../../../sites/hulu-grid/img/lake.jpg);
+}
+
+.Cat:nth-child(3) {
+  background-image: url(../../../sites/hulu-grid/img/space-station.jpg);
+}
+
+.Cat:nth-child(4) {
+  background-image: url(../../../sites/hulu-grid/img/forest.jpg);
+}
+
+.Cat:nth-child(5) {
+  background-image: url(../../../sites/hulu-grid/img/wood-floor.jpg);
+}
+
+.Cat:nth-child(6) {
+  background-image: url(../../../sites/hulu-grid/img/sparkler.jpg);
+}

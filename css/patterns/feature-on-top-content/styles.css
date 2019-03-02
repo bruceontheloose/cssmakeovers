@@ -1,0 +1,117 @@
+/* Grid Container
+-------------------------------------- */
+.Stories {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+  /* Note that the layout is vertical by default. The grid isn't applied to .Stories until a wider breakpoint (see next rule). */
+}
+
+@media screen and (min-width: 30em) {
+  .Stories {
+    /* Define the grid */
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Grid Items Plus Their Content
+-------------------------------------- */
+.Story {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 256px;
+}
+
+@media screen and (max-width: 29.9375em) {
+  .Story {
+    margin-bottom: 20px;
+  }
+}
+
+.Story--feature {
+  max-width: 768px;
+  /* define the nested grid */
+  display: grid;
+}
+
+@media screen and (min-width: 30em) {
+  .Story--feature {
+    /* this determines its placement on the PARENT grid 
+      (of which .Stories is the container), not the nested one
+      (of which .Story--feature itself is the container). */
+    grid-column-end: span 3;
+  }
+}
+
+.Story__title--feature, .Story__img--feature {
+  /* place on nested grid */
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.Story__title {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 30em) {
+  .Story__title {
+    margin-top: 15px;
+  }
+}
+
+.Story__title--feature {
+  background-color: rgba(0, 0, 0, 0.6);
+  line-height: 1.23;
+  padding-bottom: 13px;
+  padding-top: 13px;
+  /* superimpose text on feature image. this works because .Story--feature is a grid container. */
+  -ms-flex-item-align: end;
+      align-self: end;
+  z-index: 1;
+}
+
+@media screen and (min-width: 30em) {
+  .Story__title--feature {
+    font-size: 1.5625rem;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+}
+
+.Story__img {
+  border: 1px solid #777;
+  display: block;
+  max-width: 100%;
+}
+
+/* Text links */
+.Story a {
+  color: #222;
+  display: block;
+  text-decoration: none;
+}
+
+.Story a:hover {
+  text-decoration: underline;
+}
+
+.Story--feature a {
+  color: #fff;
+}
+
+/* Photos credit below container 
+----------------------------------- */
+.Credit {
+  font-style: italic;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+  padding-right: 20px;
+  text-align: right;
+}

@@ -1,0 +1,399 @@
+body {
+  margin: 0;
+}
+
+/* OUTER CONTAINERS
+-------------------------------------- */
+.WiredBg {
+  /* The only purpose of this outermost container. */
+  background-color: #f6f6f6;
+}
+
+.WiredWrapper {
+  margin: 0 auto;
+  max-width: 932px;
+  width: calc(100% - 100px);
+}
+
+/* Define the parent grid, which 
+is for the overall page layout. */
+@media screen and (min-width: 56.25rem) {
+  .WiredWrapper {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* CONTENT + SIDEBAR CONTAINERS
+-------------------------------------- */
+@media screen and (min-width: 56.25rem) {
+  /* Place on the parent grid */
+  .Content {
+    grid-column: span 4;
+  }
+  .Sidebar {
+    grid-column: span 2;
+  }
+}
+
+/* MAIN CONTENT
+-------------------------------------- */
+/* :::: Heading for "Top Stories" and "Most Popular" :::: */
+.HeadingSection {
+  border-bottom: 1px solid #ccc;
+  color: #000;
+  font-family: "Bodoni 72", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: 1.875rem;
+  line-height: .8;
+  margin-bottom: 16px;
+  margin-top: 0;
+  padding: 16px;
+  text-transform: uppercase;
+}
+
+.HeadingSection--top {
+  padding-left: 0;
+}
+
+@media screen and (min-width: 56.25rem) {
+  .HeadingSection--top {
+    display: none;
+  }
+}
+
+/* :::: Stories :::: */
+.Stories {
+  background-color: #fff;
+  border-top: 10px solid #000;
+  -webkit-box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+}
+
+@media screen and (max-width: 56.1875rem) {
+  .Stories--top {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media screen and (min-width: 56.25rem) {
+  .Stories--top {
+    background-color: transparent;
+    border-top: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+/* :::: Cards :::: */
+@media screen and (min-width: 56.25rem) {
+  .Cards {
+    /* This nested grid is for laying out the 
+  various-sized cards within the main stories area. */
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: 
+      "standard standard standard standard narrow narrow"
+      "small-1  small-1  small-1  large  large  large"
+      "small-2  small-2  small-2  large  large  large"
+      "full     full     full     full   full   full";
+  }
+}
+
+/* Card (used in both .Content and .Sidebar sections) */
+.Card {
+  background-color: #fff;
+  padding-bottom: 16px;
+}
+
+@media screen and (max-width: 56.1875rem) {
+  .Card:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 56.25rem) {
+  .Card {
+    border-top: 3px solid #000;
+    -webkit-box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+            box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+    padding: 16px;
+    transition: transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1), -webkit-transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  }
+  .Card:not(.Card--post):hover {
+    -webkit-box-shadow: -2px 0 2px 0 rgba(0, 0, 0, 0.16), 2px 0 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.23);
+            box-shadow: -2px 0 2px 0 rgba(0, 0, 0, 0.16), 2px 0 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.23);
+    -webkit-transform: translate3d(0, -3px, 0);
+            transform: translate3d(0, -3px, 0);
+  }
+  /* Name each grid area used by grid-template-areas,  
+  which positions them on the grid. */
+  .Card--standard {
+    grid-area: standard;
+  }
+  .Card--narrow {
+    grid-area: narrow;
+  }
+  .Card--small-1 {
+    grid-area: small-1;
+  }
+  .Card--small-2 {
+    grid-area: small-2;
+  }
+  .Card--large {
+    grid-area: large;
+  }
+  .Card--full {
+    grid-area: full;
+  }
+  /* Yes, floats can still help! */
+  .Card--horiz .Card__img {
+    float: left;
+    margin-right: 16px;
+  }
+  .Card--horiz .Card__subject {
+    margin-top: 0;
+  }
+  .Card--horiz-flipped .Card__img {
+    float: right;
+    margin-left: 16px;
+  }
+  .Card--horiz-flipped .Card__subject {
+    margin-top: 0;
+  }
+}
+
+/* Card links */
+.Card a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 56.25rem) {
+  .Card a {
+    -webkit-transition: color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+    transition: color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  }
+  .Card a:hover .Card__heading {
+    opacity: .6;
+  }
+}
+
+/* Card images */
+.Card__img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 56.25rem) {
+  .Card__img--full {
+    width: 65.582191781%;
+  }
+  .Card--large .Card__img {
+    display: none;
+  }
+}
+
+/* Card heading */
+.Card__heading {
+  color: #000;
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
+  -webkit-transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.Card__heading--xlg {
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 56.25rem) {
+  .Card__heading--xlg {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.625rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+.Card__heading--lg {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.11;
+}
+
+.Card__heading--sm {
+  font-size: 1rem;
+  line-height: 1.1875;
+}
+
+.Card__heading--alt {
+  font-family: Georgia, serif;
+  font-size: 1.1875rem;
+  font-weight: normal;
+  line-height: 1.111;
+}
+
+@media screen and (min-width: 1200px) {
+  .Card__heading--alt {
+    font-size: 1.5rem;
+    line-height: 1.125;
+  }
+}
+
+.Card__heading--post {
+  color: #252525;
+  font-family: Georgia, serif;
+  font-size: .8125rem;
+  font-weight: normal;
+  line-height: 1.23077;
+}
+
+/* Card byline and subject */
+.Card__byline, .Card__subject {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: .625rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.Card__byline {
+  white-space: nowrap;
+}
+
+.Card__subject {
+  letter-spacing: .155em;
+}
+
+.Stories--top .Card__subject {
+  margin-bottom: 1px;
+}
+
+.Stories--bar .Card__subject {
+  margin-bottom: 4px;
+}
+
+@media screen and (min-width: 56.25rem) {
+  .Card__subject--lg {
+    font-family: "Bodoni 72", "Bodoni MT", Didot, "Times New Roman", serif;
+    font-size: 1.75rem;
+    letter-spacing: normal;
+    line-height: 1;
+    margin-bottom: -3px;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+}
+
+a.Card__byline:hover {
+  color: #000;
+  background: #b4e7f8;
+}
+
+/* SIDEBAR: MOST POPULAR
+-------------------------------------- */
+.Stories {
+  padding-bottom: 16px;
+}
+
+.Stories__list {
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.Card--post {
+  border-top: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+}
+
+.Card--post:first-child {
+  padding-top: 0;
+}
+
+.Card--post:after, .Card--post:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.Card--post:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.Card--post .Card__img {
+  float: left;
+  margin-right: 16px;
+}
+
+.Card--post .Card__subject {
+  margin-top: 0;
+}
+
+/* LINK WITH ARROW
+-------------------------------------- */
+.Link--arrow {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: .625rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin-left: 16px;
+  margin-right: 16px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-transition: color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.Link--arrow:hover {
+  color: #252525;
+}
+
+.Link--arrow:hover::before {
+  background-color: #252525;
+  -webkit-transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.Link--arrow::before {
+  background-color: #666;
+  border-radius: 50%;
+  color: #fff;
+  content: '\2192';
+  display: inline-block;
+  font-size: 12px;
+  height: 30px;
+  line-height: 26px;
+  margin: 0 8px 0 0;
+  text-align: center;
+  width: 30px;
+}
+
+/* AD
+-------------------------------------- */
+@media screen and (max-width: 56.1875rem) {
+  .Ad {
+    display: block;
+    margin: 16px auto;
+    max-width: 300px;
+  }
+}
+
+.Ad img {
+  max-width: 100%;
+}

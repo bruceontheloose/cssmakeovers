@@ -1,0 +1,375 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* for IE11 and other old browsers that don't support the &lt;main&gt; element. without this rule, they won't display the gray around the articles. */
+.MlbWrapper {
+  display: block;
+}
+
+/* GRID
+-------------------------------------- */
+@media screen and (min-width: 64rem) {
+  /* :::: Overall Page Layout :::: */
+  /* Define the grid */
+  .MlbWrapper {
+    display: grid;
+    grid-template-columns: 1fr 316px 16px minmax(692px, 952px) 1fr;
+  }
+  /* Place items on the grid */
+  .PageHeader {
+    grid-column: 1 / -1;
+  }
+  .Sidebar {
+    grid-column: 2;
+  }
+  .Articles {
+    grid-column: 4;
+  }
+}
+
+/* :::: Article Links in Sidebar :::: */
+/* Define the nested grids */
+.ArticlesNav__link {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: grid;
+  grid-column-gap: 10px;
+  /* thumbnail is 117px. text takes up the rest. */
+  grid-template-columns: 117px 1fr;
+}
+
+/* STYLING
+-------------------------------------- */
+/* ::::::::::::::::::::::::::::::: */
+/* :::: Wrapper of whole page :::: */
+/* ::::::::::::::::::::::::::::::: */
+.MlbWrapper {
+  background-color: #ececec;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ::::::::::::::::::::: */
+/* :::: Page Header :::: */
+/* ::::::::::::::::::::: */
+.PageHeader {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #d2d2d2;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3rem;
+  min-height: 3.0625rem;
+  padding-left: 5%;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (min-width: 35.5625rem) {
+  .PageHeader {
+    min-height: 5.625rem;
+    padding-left: 2.5%;
+  }
+}
+
+@media screen and (min-width: 81.5rem) {
+  .PageHeader {
+    padding-left: 0;
+  }
+}
+
+.PageHeader__title {
+  font-size: 1.6875rem;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+}
+
+@media screen and (min-width: 48rem) {
+  .PageHeader__title {
+    font-size: 2.375rem;
+  }
+}
+
+@media screen and (min-width: 81.5rem) {
+  .PageHeader__title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1284px;
+  }
+}
+
+.PageHeader__title span {
+  font-size: .575em;
+}
+
+@media screen and (min-width: 48rem) {
+  .PageHeader__title span {
+    font-size: .5em;
+    vertical-align: middle;
+  }
+}
+
+.PageHeader__title span:before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background: #d2d2d2;
+  margin-left: 7px;
+  margin-right: 14px;
+  position: relative;
+  top: 3px;
+}
+
+@media screen and (min-width: 48rem) {
+  .PageHeader__title span:before {
+    margin-left: 6px;
+    margin-right: 15px;
+  }
+}
+
+/* for browsers that don't support grid */
+.Articles {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* undo what was set for browsers that don't support grid */
+@supports (display: grid) {
+  .Articles {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* :::::::::::::::::::::: */
+/* :::: News Article :::: */
+/* :::::::::::::::::::::: */
+.Article {
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  padding-top: 56px;
+}
+
+.Article a:not(.Article__btn) {
+  color: #4c8cee;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.Article__headline {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.19986;
+  max-width: 764px;
+  width: 90%;
+  margin: 0 auto 19px;
+}
+
+@media screen and (min-width: 48rem) {
+  .Article__headline {
+    font-size: 1.8125rem;
+  }
+}
+
+.Article__photo {
+  display: block;
+  margin-bottom: 16px;
+  max-width: 100%;
+}
+
+.Article__content {
+  font-size: 0.875rem;
+  margin: auto;
+  max-width: 764px;
+  width: 90%;
+}
+
+@media screen and (min-width: 48rem) {
+  .Article__content {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 63.9375rem) {
+  .Article__content--snippet {
+    display: none;
+  }
+}
+
+.Article__content--body {
+  display: none;
+}
+
+.Article__content p {
+  line-height: 1.5;
+}
+
+.Article__footer {
+  font-style: italic;
+}
+
+.Article__btn {
+  color: #666;
+  background-color: #fff;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  display: table;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.Article__btn:hover {
+  background-color: #ececec;
+}
+
+@media screen and (max-width: 63.9375rem) {
+  .Article__btn {
+    margin-top: 32px;
+  }
+}
+
+/* ::::::::::::::::::::::::::::: */
+/* :::: Author Photo + Info :::: */
+/* ::::::::::::::::::::::::::::: */
+.Author {
+  font-size: 0.75rem;
+  font-weight: bold;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 55px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 35.5625rem) {
+  .Author {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .Author {
+    font-size: 1rem;
+  }
+}
+
+.Author__img {
+  border-radius: 50%;
+  display: inline-block;
+  height: 55px;
+  margin-right: 10px;
+  width: 55px;
+}
+
+.Author__info {
+  margin: 0;
+}
+
+.Author__source:after, .Author__source:before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  border-right: 1px solid #4a4a4a;
+}
+
+.Author__source:after {
+  margin: 0 5px 0 10px;
+}
+
+.Author__source:before {
+  margin: 0 10px 0 5px;
+}
+
+.Author__date {
+  color: #999;
+  display: block;
+  line-height: 1;
+}
+
+.Sidebar {
+  display: none;
+}
+
+@supports (display: grid) {
+  @media screen and (min-width: 64rem) {
+    .Sidebar {
+      -ms-flex-item-align: start;
+          align-self: start;
+      display: block;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      will-change: top;
+    }
+  }
+}
+
+/* ::::::::::::::::::::::::::::: */
+/* :::: Articles Navigation :::: */
+/* ::::::::::::::::::::::::::::: */
+.ArticlesNav {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.ArticlesNav__item {
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.ArticlesNav__link {
+  background-color: #fff;
+  color: #333;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.ArticlesNav__link:hover {
+  background-color: #002e6d;
+  color: #fff;
+}
+
+.ArticlesNav__txt {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}

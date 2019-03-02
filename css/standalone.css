@@ -1,0 +1,20 @@
+.Credit {
+  font-style: italic;
+  margin: 20px auto 0;
+  max-width: 1600px;
+  line-height: 1.6;
+  padding-bottom: 36px;
+  padding-left: 10px;
+  grid-column: 1 / -1;
+}
+
+.Credit--ctr {
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+.Credit--rt {
+  padding-right: 10px;
+  text-align: right;
+}

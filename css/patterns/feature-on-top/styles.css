@@ -1,0 +1,64 @@
+/* Grid
+-------------------------------------- */
+/* Define the grid */
+.container {
+  display: grid;
+  grid-gap: 20px 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Place items on the grid */
+.feature {
+  grid-column-end: span 4;
+}
+
+.box {
+  /* each box fills two columns by default, 
+     resulting in two per row */
+  grid-column-end: span 2;
+}
+
+@media screen and (min-width: 30em) {
+  .box {
+    /* each box fills one column in wider viewports, 
+       resulting in four across */
+    grid-column-end: span 1;
+  }
+}
+
+/* Generic styles for demo purposes
+-------------------------------------- */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.container {
+  font-family: Helvetica, Arial, sans-serif;
+  max-width: 800px;
+}
+
+.container > * {
+  background-color: #ccc;
+  padding: 1em;
+  /* see note below */
+  height: 19vw;
+}
+
+/* In many cases, you would omit declaring a height (and you probably wouldn't use a vw value if you did decalre a height), instead allowing your content to dictate the height. The same is true for the height of the other grid items, defined in the rule immediately above. */
+.feature {
+  height: 40vw;
+}
+
+@media screen and (min-width: 30em) {
+  .feature {
+    height: 30vw;
+  }
+}
