@@ -1,0 +1,24 @@
+{
+  "name": "cssmakeovers-github",
+  "version": "1.0.0",
+  "description": "Standalone examples from cssmakeovers.com.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruceontheloose/cssmakeovers.git"
+  },
+  "keywords": [],
+  "author": "Bruce Hyslop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bruceontheloose/cssmakeovers/issues"
+  },
+  "homepage": "https://github.com/bruceontheloose/cssmakeovers#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-replace": "^1.0.0"
+  }
+}
